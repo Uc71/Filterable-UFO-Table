@@ -1,34 +1,27 @@
 var people=data
+var tbody1=d3.select("tbody");
 for (i=0 ; i<people.length; i++){
-    var tbody=d3.select("tbody");
-    var row=tbody.append("tr");
+    var row=tbody1.append("tr");
     for (let key in people[i]){
         row.append("td").text(people[i][key]);
     }
 }
-var button = d3.select("#button");
+var button = d3.select("#filter-btn");
 var form = d3.select(".form-group");
-// Create event handlers 
-button.on("click", runEnter);
-form.on("submit",runEnter);
-// Complete the event handler function for the form
 function runEnter() {
+form.on("submit",runEnter);
   d3.event.preventDefault();
-  // Select the input element and get the raw HTML node
   var inputElement = d3.select("#datetime");
-  // Get the value property of the input element
-  var inputValue = inputElement.("text");
-//   var filteredData = people.filter(people[i] => people[i].datetime === inputValue);
+  var inputValue = inputElement.property("value");
+  var filteredData = people.filter(people => people.datetime === inputValue);
+console.log(inputValue);
+tbody1.html("");
+for (i = 0; i < filteredData.length; i++) {
+    var tbody2=d3.select("tbody");
+    var row1=tbody2.append("tr");
+    for (let key in filteredData[i]){
+        row1.append("td").text(filteredData[i][key]);
+    }
+  }
 }
-console.log(inputValue)
-// for (i = 0; i < tr.length; i++) {
-//     td = tr[i].getElementsByTagName("td")[0];
-//     if (td) {
-//       txtValue = td.textContent || td.innerText;
-//       if (txtValue.indexOf(filter) > -1) {
-//         tr[i].style.display = "";
-//       } else {
-//         tr[i].style.display = "none";
-//       }
-//     }
-//   }
+button.on("click", runEnter);
