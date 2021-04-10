@@ -1,4 +1,4 @@
-# javascript-challenge
+# Filterable UFO Table
 I looked through the data JS file and observed that it was a list of dicts.
 I made a for loop to run through each dict and put all of its data into a row in the table.
 Then, once the table was full, I made event handlers for the form and the filter button and made a function to run when either handler heard an event.
