@@ -21,7 +21,7 @@ for (i=0 ; i<people.length; i++){
 var button = d3.select("#filter-btn");
 var form = d3.select(".form-group");
 
-// I make a function to serve as the event handler for the form-group.
+// I made a function to serve as the event handler for the form-group.
 function runEnter() {
 
   // I define the function and, within it, tell d3 to look for the datetime value info in the form and filter
